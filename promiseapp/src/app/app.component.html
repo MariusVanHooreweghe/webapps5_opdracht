@@ -1,0 +1,11 @@
+<div>
+  <h1>Welcome to promisekeeper</h1>
+</div>
+<div>
+    <app-add-promise (newPromise)="newPromiseAdded($event)"></app-add-promise>
+</div>
+<div class="container">
+  <ul class="list-group">
+    <li *ngFor="let localPromise of promises" class="list-group-item"><app-promise [promise]="localPromise"></app-promise></li>
+  </ul>
+</div>

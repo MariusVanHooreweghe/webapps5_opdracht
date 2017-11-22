@@ -1,0 +1,17 @@
+
+<div class="main">
+<h2>Promises</h2>
+<p>
+  {{promise.description}}
+</p>
+</div>
+Users:
+<div class="container">
+  <ul class="list-group">
+    <li *ngFor="let localUser of users" class="list-group-item">
+      <app-user [user]="localUser"></app-user>
+    </li>
+  </ul>
+</div>
+<app-add-user (newUser)="addUser($event)"></app-add-user>
+

@@ -1,0 +1,14 @@
+<form> 
+  <h3>Make a promise</h3>
+  <div class="media">
+    <div class="media media-left">
+      <label for="description">Description:</label> 
+      <input id="description" name="description" #newpromisedescription>
+    </div>
+    <div class="media media-right">
+      <button (click)="makePromise(newpromisedescription)">
+        make
+      </button>
+    </div>
+  </div>
+</form>	
