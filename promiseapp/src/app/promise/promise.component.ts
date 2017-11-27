@@ -8,7 +8,7 @@ import { User } from '../user/user.model';
 })
 export class PromiseComponent implements OnInit {
   @Input() public promise: Promise;
-  private users: User[];  
+  public users: User[];  
   constructor() { 
   }
 

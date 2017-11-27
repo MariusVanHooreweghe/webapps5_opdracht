@@ -8,7 +8,7 @@ import { PromiseDataService } from './promise-data.service';
   providers: [PromiseDataService]
 })
 export class AppComponent {
-  private promises: Promise[];
+  public promises: Promise[];
   constructor(private _promiseDataService : PromiseDataService){
     this.promises = this._promiseDataService.promises;
   }
