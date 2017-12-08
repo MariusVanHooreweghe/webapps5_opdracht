@@ -1,0 +1,37 @@
+<form [formGroup]='user' (ngSubmit)='onSubmit()' class="form-vertical">
+  <h3>Register</h3>
+  <div class="form-group">
+    <label for="username" class="control-label col-sm-2">Username:</label>
+    <input type="text" id="username" formControlName='username'>
+    <div *ngIf='user.get("username").errors?.required && user.get("username").touched'>
+      <p>a username is required</p>
+    </div>
+    <div *ngIf='user.get("username").errors?.minlength && user.get("username").touched'>
+      <p>the username should be at least {{user.get("username").errors?.minlength.requiredLength }} letters </p>
+    </div>
+    <div *ngIf='user.get("username").errors?.userAlreadyExists && user.get("username").touched'>
+      <p>a user with that name already exists</p>
+    </div>
+  </div>
+  <div formGroupName='passwordGroup'>
+    <div class="form-group">
+      <label for="password" class="control-label col-sm-2">Password:</label>
+      <input type="password" id="password" formControlName='password'>
+      <div *ngIf=' passwordControl.errors?.passwordTooShort && passwordControl.touched'>
+        <p>The password too short, please use at least {{passwordControl.errors?.passwordTooShort.requiredLength}} characters. (Currently {{passwordControl.errors?.passwordTooShort.actualLength}})</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="confirmpassword" class="control-label col-sm-2">Confirm password:</label>
+      <input type="password" id="confirmpassword" formControlName='confirmPassword'>
+      <div *ngIf=' user.get("passwordGroup").errors?.passwordsDiffer && user.get("passwordGroup").get("confirmPassword").touched  && user.get("passwordGroup").get("password").touched'>
+        <p>Passwords do not match.</p>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2">
+      <button type='submit' [disabled]='!user.valid' class="btn btn-success">Register</button>
+    </div>
+  </div>
+</form>

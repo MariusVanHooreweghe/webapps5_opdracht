@@ -1,0 +1,11 @@
+p {
+    color:red;
+}
+.row {
+    margin-bottom: 10px;
+}
+.main {
+    display: block;
+    width: 80%;
+    margin: auto;
+}

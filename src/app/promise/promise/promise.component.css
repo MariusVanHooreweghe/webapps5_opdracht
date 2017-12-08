@@ -1,0 +1,21 @@
+span:hover {
+    color: gray;
+}
+span {
+    color: black;
+}
+h3 {
+    font-weight: bold;
+}
+li {
+    width: 30%;
+    margin-left: 10%;
+    padding: 0.4%;
+    overflow: auto;
+    background-color: whitesmoke;
+    border-left: 5px solid gray;
+    border-radius: 0px;
+}
+h3 > a {
+    color: black;
+}

@@ -1,0 +1,7 @@
+  <ul class="list-group">
+    <li *ngFor="let localPromise of promises" class="list-group-item">
+      <app-promise [promise]="localPromise" (toDeletePromise)='removePromise($event)'></app-promise>
+    </li>
+    <a *ngIf="promises?.length == 0" routerLinkActive='active' 
+    routerLink="/promise/add" >You have not made any promises yet. Click here to make one.</a>
+  </ul>

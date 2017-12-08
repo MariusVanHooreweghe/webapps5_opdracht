@@ -1,0 +1,26 @@
+
+<div class="container-fluid grid">
+  <div class="row">
+    <h3>
+      <a [routerLink]="['/promise', promise._id]">{{promise.name}}</a>
+    </h3>
+    <!--h4>
+    {{promise.description}}
+    </h4>
+    Promised to
+    <div class="container">
+      <ul class="list-group">
+        <li *ngFor="let localPromisee of promise.promisees" class="list-group-item list-group-item-secondary">
+          <app-promisee [promisee]="localPromisee"></app-promisee>
+        </li>
+      </ul>
+    </div>-->
+      <div class="pull-right">
+        <a [routerLink]="['/promise', promise._id]"><span class="	glyphicon glyphicon-eye-open"></span></a>
+        <span (click)="deletePromise()" class="	glyphicon glyphicon-trash"></span>
+      </div>
+ </div>
+</div>
+
+
+

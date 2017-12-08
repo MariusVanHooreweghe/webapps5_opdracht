@@ -1,0 +1,49 @@
+<div class="main">
+  <form [formGroup]='promise' (ngSubmit)='onSubmit()' class="form-horizontal">
+  <div class="grid">
+    <div class="row">
+      <label for="name_id"class="col-lg-6 col-md-6 col-sm-6 col-xs-12">Name:</label>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">          
+        <input type="text" id="name_id" formControlName='name' class="form-control" #spy>
+      </div>
+    </div>
+    <div class="row">
+      <label for="description_id" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">Description:</label>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">          
+        <input type="text" id="description_id" formControlName='description' class="form-control" #spytwo>
+      </div>
+    </div>
+      <div class="row">
+        <label for="promisees_id" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">Promisees:</label>
+      </div>
+      <div formArrayName='promisees' *ngFor="let item of promise.get('promisees')['controls']; let i = index" class="row">
+        <div [formGroupName] = 'i'>
+          <div class="col-sm-6">
+            <input type="text" id="promisees_id" formControlName='name' class="form-control" #spythree />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <button (click)="addPromiseeField()" class="btn btn-info btn-md" type="button">Add a promisee</button>
+          <button (click)="removePromiseeField()" class="btn btn-danger btn-md" type="button">Remove a promisee</button>
+          <button [disabled]='!promise.valid' class="btn btn-success btn-md" type='submit'>
+            Make the promise
+          </button>
+          <div *ngIf='(promise.get("name").errors?.required && promise.get("name").touched) || (promise.get("description").errors?.required && promise.get("description").touched)'>
+              <p>Please fill in all fields.</p>
+          </div>
+        </div>      
+      </div>
+  </div>
+</form>
+</div>
+<!-- 
+REMOVE LATER: values:{{promise.value | json }} <br />
+<strong>is valid:</strong> {{promise.valid}}<br />
+<strong>spy:</strong> {{spy.className}} <br />
+<strong>errors:</strong> {{promise.get("description").errors | json}} {{promise.get("promisees").errors | json}}-->

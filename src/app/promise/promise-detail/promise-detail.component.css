@@ -1,0 +1,14 @@
+.row {
+    margin-bottom: 10px;
+}
+.main {
+    display: block;
+    width: 80%;
+    margin: auto;
+}
+div {
+    margin-left: 10%;
+}
+h1, h5 {
+    text-decoration: underline;
+}

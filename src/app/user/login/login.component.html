@@ -1,0 +1,70 @@
+<div class="container">
+  <form [formGroup]="user" (ngSubmit)='onSubmit()' class="form-horizontal">
+    <h1>Login</h1>
+    <div class="form-group">
+      <label for="username" class="control-label col-sm-2">Username:</label>
+      <input type="text" id="username" formControlName="username">
+      <div *ngIf='user.get("username").errors?.required && user.get("username").touched'>
+        <p>This field is required.</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password" class="control-label col-sm-2">Password:</label>
+      <input type="password" id="password" formControlName="password">
+      <div *ngIf='user.get("password").errors?.required && user.get("password").touched'>
+        <p>This field is required.</p>
+      </div>
+    </div>
+    <div class="form group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <a class="btn btn-info" routerLink="/register">Register</a>        
+        <button type='submit' [disabled]='!user.valid' class="btn btn-success">Log in</button>
+        <p *ngIf='errorMsg'>{{errorMsg}}</p>
+      </div>
+    </div>
+  </form>
+</div>
+<!--
+  <form [formGroup]='promise' (ngSubmit)='onSubmit()' class="form-horizontal">
+  <div class="main">
+    <div class="form-group">
+      <label for="name_id" class="control-label col-sm-2">Name:</label>
+      <div class="col-sm-4">          
+        <input type="text" id="name_id" formControlName='name' class="form-control" #spy>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="description_id" class="control-label col-sm-2">Description:</label>
+      <div class="col-sm-4">          
+        <input type="text" id="description_id" formControlName='description' class="form-control" #spytwo>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col col-md-5">
+        <div formArrayName='promisees' class="form-group row" *ngFor='let item of promise.get("promisees").controls; 
+        let i = index'>
+          <div [formGroupName] = 'i'>
+            <label for="promisees_id" class="control-label col-sm-2">Promisee:</label>
+            <div class="col-sm-2">  
+              <input type="text" id="promisees_id" formControlName='name' class="form-control" #spythree />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col col-md-1">
+        <button (click)="addPromiseeField()" class="btn btn-info btn-sm" type="button">Add a promisee</button>
+        <button (click)="removePromiseeField()" class="btn btn-danger btn-sm" type="button">Remove a promisee</button>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <button [disabled]='!promise.valid' class="btn btn-success btn-lg" type='submit'>
+                Make the promise
+            </button>
+        </div>
+      </div>      
+    </div>
+  </div>
+</form>
+-->

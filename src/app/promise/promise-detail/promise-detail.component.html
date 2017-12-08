@@ -1,0 +1,61 @@
+<div class="main">
+  <h1>
+    {{promise.name}}
+  </h1>
+  <h3>
+    {{promise.description}}
+  </h3>
+  <h5>
+    Promised to: 
+  </h5>
+  <div *ngFor="let localPromisee of promise.promisees">
+    <app-promisee [promisee]="localPromisee"></app-promisee>
+  </div>
+</div>
+<!--h1>
+  Edit promise: {{promise.name}}
+</h1>
+<div class="main">
+<form [formGroup]='promiseFG' (ngSubmit)='onSubmit()' class="form-horizontal">
+  <div class="grid">
+    <div class="row">
+      <label for="name_id"class="col-lg-6 col-md-6 col-sm-6 col-xs-12">Name:</label>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">          
+        <input type="text" id="name_id" formControlName='name' class="form-control">
+      </div>
+    </div>
+    <div class="row">
+      <label for="description_id" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">Description:</label>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">          
+        <input type="text" id="description_id" formControlName='description' class="form-control">
+      </div>
+    </div>
+      <div class="row">
+        <label for="promisees_id" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">Promisees:</label>
+      </div>
+      <div formArrayName='promiseesFA' *ngFor='let item of promiseFG.get("promiseesFA").controls; let i = index' class="row">
+        <div [formGroupName] = 'i'>
+          <div class="col-sm-6">
+            <input type="text" id="promisees_id" formControlName='name' class="form-control"/>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <button (click)="addPromiseeField()" class="btn btn-info btn-md" type="button">Add a promisee</button>
+          <button (click)="removePromiseeField()" class="btn btn-danger btn-md" type="button">Remove a promisee</button>
+          <button [disabled]='!promiseFG.valid' class="btn btn-success btn-md" type='submit'>
+            Save the promise
+          </button>
+          <div *ngIf='(promiseFG.get("name").errors?.required && promiseFG.get("name").touched) || (promiseFG.get("description").errors?.required && promiseFG.get("description").touched)'>
+              <p class="alert">Please fill in all fields.</p>
+          </div>
+        </div>      
+      </div>
+  </div>
+</form>
+</div>-->
