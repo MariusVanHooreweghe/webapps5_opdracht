@@ -10,7 +10,6 @@
     "test": "node ./node_modules/jasmine/bin/jasmine.js",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build -dev"
   },
   "devDependencies": {
     "@angular/cli": "1.4.3",
