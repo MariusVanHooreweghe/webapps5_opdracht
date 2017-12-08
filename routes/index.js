@@ -7,11 +7,6 @@ let PromiseBundle = mongoose.model('PromiseBundle');
 let jwt = require('express-jwt');
 let auth = jwt({secret: process.env.PROMISE_BACKEND_SECRET, userProperty: 'payload'});
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
-
 //get all promises
 router.get('/API/promises/', auth, function(req, res, next){
   let query = Promise.find().populate('promisees');
