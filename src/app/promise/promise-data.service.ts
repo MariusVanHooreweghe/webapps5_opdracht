@@ -8,7 +8,7 @@ import { AuthenticationService } from '../user/authentication.service';
 import 'rxjs/add/operator/map';
 @Injectable()
 export class PromiseDataService {
-  private _appUrl = 'http://localhost:4200/API';
+  private _appUrl = '/API';
   private _promises = new Array<Promise>();
   constructor(private http: Http, private auth: AuthenticationService) {
   }
